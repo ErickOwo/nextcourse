@@ -4,7 +4,11 @@
     "paths": {
       "@pages": ["pages/"],
       "@styles": ["styles/"],
-      "@public": ["public/"]
+      "@public": ["public/"],
+      "@components": ["src/components/"],
+      "@containers": ["src/containers/"],
+      "@icons": ["src/assets/icons/"],
+      "@logs": ["src/assets/logs/"]
     }
   }
 }
