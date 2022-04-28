@@ -1,9 +1,6 @@
-import Menu from "@components/Menu"
 
-export default function Menu() {
-  return (
-    <>
-      <Menu />
-    </>
+export default function App() {
+  return(
+    <div>Hola</div>
   );
 };

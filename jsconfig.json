@@ -2,13 +2,13 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@pages": ["pages/"],
-      "@styles": ["styles/"],
-      "@public": ["public/"],
-      "@components": ["src/components/"],
-      "@containers": ["src/containers/"],
-      "@icons": ["src/assets/icons/"],
-      "@logs": ["src/assets/logs/"]
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
+      "@public/*": ["public/"],
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@icons/*": ["src/assets/icons/*"],
+      "@logs/*": ["src/assets/logs/*"]
     }
   }
 }
