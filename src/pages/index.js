@@ -1,6 +1,13 @@
+import Head from 'next/head';
+import ProductList from '@containers/ProductList';
 
 export default function App() {
-  return(
-    <div>Hola</div>
+  return (
+    <>
+      <Head>
+        <title>Next App</title>
+      </Head>
+      <ProductList />
+    </>
   );
-};
+}

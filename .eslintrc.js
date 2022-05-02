@@ -8,12 +8,13 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:js-a11y/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'next',
     'next/core-web-vitals'
   ],
   rules: {
-    'semi': ['error', 'always']
+    'semi': ['error', 'always'],
+    'prettier/prettier': 0
   }
 }

@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
-import cardIconAdd from "@icons/bt_add_to_cart.svg";
-import cardIconAdded from "@icons/bt_added_to_cart.svg"
-import AppContext from "../context/AppContext";
-import ProductsContext from "../context/ProductsContext"
+import React, { useContext } from 'react';
+import Image from 'next/image';
+
+import cardIconAdd from '@icons/bt_add_to_cart.svg';
+import cardIconAdded from '@icons/bt_added_to_cart.svg';
+
+import AppContext from '@context/AppContext';
+import ProductsContext from '@context/ProductsContext';
+
+import styles from '@styles/Orders.module.scss';
 
 const ProductItem = ({ product, added })=>{
   const { addToCart, removeFromCart } = useContext(AppContext);
@@ -11,22 +16,38 @@ const ProductItem = ({ product, added })=>{
   const handleClickCart = () =>{
     if(!added) addToCart(product);
     else removeFromCart(product);
-  }
+  };
 
   return(
-    <div className="product-card">
-      <img src={product.images[0]} alt={product.title} />
-      <div className="product-info">
+    <div className={styles['product-card']}>
+      <Image 
+      loader={()=> `${product.images[0]}?w=${100}&q=${75}`}
+      width='100%' 
+      height='100%'
+      src={product.images[0]} 
+      alt={product.title}
+      layout='responsive'
+      priority='false' />
+      <div className={styles['product-info']}>
         <div>
           <p>${product.price}</p>
           <p>{product.title}</p>
         </div>
-        <figure onClick={ handleClickCart }>
-          <img src={added ? cardIconAdded : cardIconAdd} alt="" onClick={()=> {handleAdd(product.id); console.log(product)}}/>
+        <figure>
+          <Image 
+          width='35px' 
+          height='35px'
+          src={added ? cardIconAdded : cardIconAdd} 
+          alt="" 
+          onClick={ ()=> {
+            handleClickCart();
+            handleAdd(product.id);
+          } }
+          />
         </figure>
       </div>
     </div>
   );
-}
+};
 
 export default ProductItem;

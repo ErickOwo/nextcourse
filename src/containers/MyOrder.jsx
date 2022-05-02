@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
-import AppContext from "../context/AppContext";
-import OrderItem from "../components/OrderItem";
-import iconArrow from "@icons/flechita.svg";
-import "@styles/my-order.scss";
+import React, { useContext } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import AppContext from '@context/AppContext';
+
+import OrderItem from '@components/OrderItem';
+
+import iconArrow from '@icons/flechita.svg';
+
+import styles from '@styles/MyOrder.module.scss';
 
 const MyOrder = ({ closeToggleOrders })=>{
   const { state } = useContext(AppContext);
@@ -14,12 +19,16 @@ const MyOrder = ({ closeToggleOrders })=>{
   };
 
   return( 
-    <aside className="product-detail">
-    <div className="title-container">
-      <img src={iconArrow} alt="arrow" onClick={closeToggleOrders} />
-      <p className="title">My order</p>
+    <aside className={styles['product-detail']}>
+    <div className={styles['title-container']}>
+      <Image 
+      width='15px' 
+      height='10px'
+      src={iconArrow} 
+      alt='arrow' onClick={closeToggleOrders} />
+      <p className={styles.title}>My order</p>
     </div>
-    <div className="my-order-content">
+    <div className={styles['my-order-content']}>
       {
         state.cart.map(item=>(
           <OrderItem
@@ -29,16 +38,18 @@ const MyOrder = ({ closeToggleOrders })=>{
         ))
       }
     </div>
-    <div className="order">
+    <div className={styles.order}>
         <p>
           <span>Total</span>
         </p>
         <p>${totalAdded()}</p>
       </div>
 
-      <button className="primary-button">
-        Checkout
-      </button>
+      <Link href='/checkout' >
+        <button className={styles['primary-button']}>
+          Checkout
+        </button>
+      </Link>
     </aside>
   );
 };

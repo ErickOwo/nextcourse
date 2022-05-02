@@ -1,4 +1,6 @@
-nav {
+@use 'vars';
+
+.Nav {
   display: flex;
   justify-content: space-between;
   padding: 0 24px;
@@ -8,6 +10,7 @@ nav {
   background-color: #fff;
   width: 100%;
   top: 0;
+  z-index: 50;
 }
 
 .menu {
@@ -88,7 +91,11 @@ nav {
   .navbar-left ul {
     display: none;
   }
-
+  .menu {
+    display: inline-block;
+    margin-top: 14px;
+    
+  }
   .navbar-email {
     display: none;
   }

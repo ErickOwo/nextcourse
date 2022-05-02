@@ -5,10 +5,13 @@
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
       "@public/*": ["public/"],
-      "@components/*": ["src/components/*"],
-      "@containers/*": ["src/containers/*"],
-      "@icons/*": ["src/assets/icons/*"],
-      "@logs/*": ["src/assets/logs/*"]
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@icons/*": ["assets/icons/*"],
+      "@logs/*": ["assets/logs/*"],
+      "@hooks/*": ["hooks/*"],
+      "@context/*": ["context/*"],
+      "@templates/*": ["templates/*"]
     }
   }
 }

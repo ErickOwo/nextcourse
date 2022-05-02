@@ -1,3 +1,5 @@
+@use 'vars';
+
 .overlay {
   display: none;
   height: 100vh;
@@ -18,7 +20,7 @@
 .icon-menu {
   position: absolute;
   right: 15px;
-  top: 0;
+  top: -4px;
   width: 25px;
   height: 60px;
 }

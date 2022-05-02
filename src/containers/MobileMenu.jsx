@@ -1,53 +1,54 @@
-import React from "react";
-import "@styles/mobile-menu.scss"
-import iconMenu from "@icons/icon_menu.svg";
+import React from 'react';
+import Link from 'next/link';
+import styles from '@styles/MobileMenu.module.scss';
+import iconMenu from '@icons/icon_menu.svg';
 
-const MobileMenu = ( { handleToggleMenu, styleMenu, styleOverlay } )=>{
+const MobileMenu = ( { handleToggleMenu } )=>{
   return(
-    <div className="overlay" style={{animation: styleOverlay}}>
-      <div className="mobile-menu" style={{animation: styleMenu}}>
-        <img src={iconMenu} className={"icon-menu"} onClick={handleToggleMenu} />
+    <div className={styles.overlay}>
+      <div className={styles['mobile-menu']}>
+        <img width='25px' height='25px'src={iconMenu.src} className={styles['icon-menu']} onClick={handleToggleMenu} />
         <ul>
           <li>
-            <a href="/">CATEGORIES</a>
+            <Link href='/'>CATEGORIES</Link>
           </li>
           <li>
-            <a href="/">All</a>
+            <Link href='/'>All</Link>
           </li>
           <li>
-            <a href="/">Clothes</a>
+            <Link href='/'>Clothes</Link>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <Link href='/'>Electronics</Link>
           </li>
           <li>
-            <a href="/">Furnitures</a>
+            <Link href='/'>Furnitures</Link>
           </li>
           <li>
-            <a href="/">Toys</a>
+            <Link href='/'>Toys</Link>
           </li>
           <li>
-            <a href="/">Other</a>
+            <Link href='/'>Other</Link>
           </li>
         </ul>
 
         <ul>
           <li>
-            <a href="/">My orders</a>
+            <a href='/'>My orders</a>
           </li>
           <li>
-            <a href="/">My account</a>
+            <a href='/'>My account</a>
           </li>
         </ul>
 
         <ul>
           <li>
-            <a href="/" className="email">
+            <a href='/' className={styles.email}>
               platzi@example.com
             </a>
           </li>
           <li>
-            <a href="/" className="sign-out">
+            <a href='/' className={styles['sign-out']}>
               Sign out
             </a>
           </li>

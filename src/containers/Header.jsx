@@ -1,34 +1,31 @@
-import React, { useState, useContext } from "react";
-import AppContext from "../context/AppContext";
-import "@styles/header.scss";
-import iconMenu from "@icons/icon_menu.svg";
-import logoYardSale from "@logs/logo_yard_sale.svg";
-import iconShoppingCard from "@icons/icon_shopping_cart.svg";
-import Menu from "@components/Menu";
-import MyOrder from "./MyOrder";
-import MobileMenu from "./MobileMenu";
+import React, { useState, useContext } from 'react';
+import Image from 'next/image';
+import Link from 'next/link'
+import AppContext from '@context/AppContext';
+
+import iconMenu from '@icons/icon_menu.svg';
+import logoYardSale from '@logs/logo_yard_sale.svg';
+import iconShoppingCard from '@icons/icon_shopping_cart.svg';
+
+import Menu from '@components/Menu';
+import MyOrder from '@containers/MyOrder';
+import MobileMenu from '@containers/MobileMenu';
+
+import styles from '@styles/Header.module.scss';
 
 const Header =()=>{
   const [toggle, setToggle] = useState(false);
   const [toggleOrders, setToggleOrders] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [animationMenu, setAnimationMenu] = useState(null);
-  const [animationOverlay, setAnimationOverlay] = useState(null);
 
   const { state } = useContext(AppContext);
 
   const handleToggleMenu = ()=>{
     if(!toggleMenu){
-      setAnimationMenu("openNav 1s forwards");
-      setAnimationOverlay("displayOverlay 1s forwards")
       setToggleMenu(!toggleMenu);
     }
     else{
-      setAnimationMenu("closeNav 1s forwards");
-      setAnimationOverlay("removeOverlay 1s forwards");
-      setTimeout(()=>{
-        setToggleMenu(!toggleMenu);
-      },1000);
+      setToggleMenu(!toggleMenu);
     }
   }
 
@@ -46,50 +43,60 @@ const Header =()=>{
     <>
       {
         toggleMenu && <MobileMenu 
-        handleToggleMenu={handleToggleMenu} 
-        styleMenu={animationMenu} 
-        styleOverlay={animationOverlay} />
+        handleToggleMenu={handleToggleMenu} />
       }
-      <nav>
-        <img 
+      <nav className={styles.Nav}>
+        <img
+          width='25px'
+          height='25px' 
           onClick={handleToggleMenu} 
-          src={iconMenu} 
-          alt="menu" 
-          className="menu" />
-        <div className="navbar-left">
-          <a href="/" className="nav-logo">
-            <img src={logoYardSale} alt="logo" className="nav-logo-img" />
-          </a>
+          src={iconMenu.src} 
+          alt='menu' 
+          className={styles.menu} />
+        <div className={styles['navbar-left']}>
+          <Link href='/'>
+            <Image
+            priority='false'
+            width='100px' 
+            height='20px'
+            src={logoYardSale} 
+            alt='logo' 
+            className={styles['nav-logo-img']} />
+          </Link>
           <ul>
             <li>
-              <a href="/">All</a>
+              <Link href='/'>All</Link>
             </li>
             <li>
-              <a href="/">Clothes</a>
+              <Link href='/'>Clothes</Link>
             </li>
             <li>
-              <a href="/">Electronics</a>
+              <Link href='/'>Electronics</Link>
             </li>
             <li>
-              <a href="/">Furnitures</a>
+              <Link href='/'>Furnitures</Link>
             </li>
             <li>
-              <a href="/">Toys</a>
+              <Link href='/'>Toys</Link>
             </li>
             <li>
-              <a href="/">Others</a>
+              <Link href='/'>Others</Link>
             </li>
           </ul>
         </div>
 
-        <div className="navbar-right">
+        <div className={styles['navbar-right']}>
           <ul>
-            <li className="navbar-email" onClick={handleToggle}>platzi@example.com</li>
+            <li className={styles['navbar-email']} onClick={handleToggle}>platzi@example.com</li>
             <li
-              className="navbar-shopping-cart"
+              className={styles['navbar-shopping-cart']}
               onClick={() => handleToggleOrders()}
             >
-              <img src={iconShoppingCard} alt="shopping cart" />
+              <Image 
+              width='25px' 
+              height='25px'
+              src={iconShoppingCard} 
+              alt='shopping cart' />
               {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
             </li>
           </ul>
