@@ -21,12 +21,7 @@ const Header =()=>{
   const { state } = useContext(AppContext);
 
   const handleToggleMenu = ()=>{
-    if(!toggleMenu){
       setToggleMenu(!toggleMenu);
-    }
-    else{
-      setToggleMenu(!toggleMenu);
-    }
   }
 
   const handleToggle = ()=>{
