@@ -5,7 +5,7 @@ import useInitialState from '@hooks/useInitialState';
 import useGetProducts from '@hooks/useGetProducts';
 import Header from '@containers/Header';
 
-const API = 'https://api.escuelajs.co/api/v1/products?limit=58&offset=-1';
+const API = 'https://api.escuelajs.co/api/v1/products';
 
 function MyApp({ Component, pageProps }) {
   const initialState = useInitialState();
