@@ -46,7 +46,8 @@ const MyOrder = ({ closeToggleOrders })=>{
       </div>
 
       <Link href='/checkout' >
-        <button className={styles['primary-button']}>
+        <button className={styles['primary-button']}
+         onClick={closeToggleOrders} >
           Checkout
         </button>
       </Link>
